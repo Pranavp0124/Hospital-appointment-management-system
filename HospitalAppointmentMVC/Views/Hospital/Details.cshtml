@@ -1,0 +1,33 @@
+@model Doctor
+
+<h2>Doctor Details</h2>
+
+<div class="card">
+    <div class="card-body">
+        <h4>@Model.DoctorName</h4>
+
+        <p><b>Doctor ID:</b> @Model.DoctorId</p>
+        <p><b>Specialization:</b> @Model.Specialization</p>
+        <p><b>Experience:</b> @Model.Experience years</p>
+        <p><b>Consultation Fee:</b> ₹@Model.ConsultationFee</p>
+
+        <p class="text-success">
+            <b>Total Charge:</b> ₹@Model.CalculateTotalCharge()
+        </p>
+
+        <p class="text-muted">
+            The doctor details are cached for 3 minutes.
+        </p>
+
+        <a class="btn btn-secondary"
+           asp-controller="Hospital" asp-action="Index">
+            Back
+        </a>
+
+        <a class="btn btn-primary"
+           asp-controller="Hospital"
+           asp-action="Appointment">
+            Appointment
+        </a>
+    </div>
+</div>

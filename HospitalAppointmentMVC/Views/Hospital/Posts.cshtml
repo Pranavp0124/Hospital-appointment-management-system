@@ -1,0 +1,26 @@
+@model List<HospitalAppointmentMVC.Controllers.HospitalController.Post>
+
+<h2>Posts from JSONPlaceholder</h2>
+
+<p class="text-muted">
+    Data is loaded asynchronously from the web API.
+</p>
+
+<table class="table table-bordered table-striped">
+    <thead class="table-primary">
+        <tr>
+            <th>Post ID</th>
+            <th>Title</th>
+        </tr>
+    </thead>
+
+    <tbody>
+    @foreach (var post in Model)
+    {
+        <tr>
+            <td>@post.Id</td>
+            <td>@post.Title</td>
+        </tr>
+    }
+    </tbody>
+</table>

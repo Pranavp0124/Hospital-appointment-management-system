@@ -1,0 +1,30 @@
+@model List<Doctor>
+
+<h2 class="mb-3">Hospital Doctors</h2>
+
+<div class="row">
+@foreach (var doctor in Model)
+{
+    <div class="col-md-4 mb-3">
+        <div class="card h-100">
+            <div class="card-body">
+                <h5 class="card-title">@doctor.DoctorName</h5>
+                <p class="mb-1"><b>Specialization:</b> @doctor.Specialization</p>
+                <p class="mb-1"><b>Experience:</b> @doctor.Experience years</p>
+                <p><b>Fee:</b> ₹@doctor.ConsultationFee</p>
+
+                <a class="btn btn-primary"
+                   asp-controller="Hospital"
+                   asp-action="Details"
+                   asp-route-id="@doctor.DoctorId">
+                    View Details
+                </a>
+            </div>
+        </div>
+    </div>
+}
+</div>
+
+<a class="btn btn-success" asp-controller="Hospital" asp-action="Appointment">
+    Book Appointment
+</a>

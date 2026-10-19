@@ -1,0 +1,48 @@
+@{
+    ViewData["Title"] = "Appointment";
+}
+
+<h2>Book Hospital Appointment</h2>
+
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["Message"]
+    </div>
+}
+
+<form asp-controller="Hospital" asp-action="Appointment" method="post"
+      class="card p-4">
+
+    <div class="mb-3">
+        <label class="form-label">Patient Name</label>
+        <input name="patientName" class="form-control" required />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Specialization</label>
+        <select name="specialization" class="form-select" required>
+            <option value="">Select specialization</option>
+            <option>Cardiologist</option>
+            <option>Dermatologist</option>
+            <option>Orthopedic</option>
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Doctor ID</label>
+        <input name="doctorId" type="number" class="form-control" value="1" required />
+
+        <!-- Hidden field also keeps the DoctorId with the submitted form. -->
+        <input type="hidden" name="doctorIdHidden" value="1" />
+    </div>
+
+    <button type="submit" class="btn btn-success">
+        Submit Appointment
+    </button>
+
+    <a class="btn btn-link mt-2"
+       asp-controller="Hospital" asp-action="AppointmentInfo">
+        View Saved Cookie/Session Data
+    </a>
+</form>
